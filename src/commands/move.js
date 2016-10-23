@@ -15,7 +15,7 @@ let attachments = [
   {
     title: 'Starbot will help you find the hippest repos on GitHub!',
     color: '#2FA44F',
-    text: '`/starbot repos` returns hip repos \n`/starbot javascript` returns hip JavaScript repos',
+    text: '```what```',
     mrkdwn_in: ['text']
   },
   {
