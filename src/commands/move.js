@@ -11,30 +11,32 @@ const msgDefaults = {
   icon_emoji: config('ICON_EMOJI')
 }
 
+let attachments = [
+  {
+    title: 'Starbot will help you find the hippest repos on GitHub!',
+    color: '#2FA44F',
+    text: '```| X | O | O |
+|---+---+---|
+| O | X | X |
+|---+---+---|
+| X | O | X |```',
+    mrkdwn_in: ['text']
+  }
+]
+
+
 const handler = (payload, res) => {
-  trending('javascript', (err, repos) => {
-    if (err) throw err
+  let msg = _.defaults({
+    channel: payload.channel_name,
+    attachments: attachments
+  }, msgDefaults)
 
-    var attachments = repos.slice(0, 5).map((repo) => {
-      return {
-        title: `Wow a move!`,
-        // title_link: repo.url,
-        text:  ```| X | O | O |```,
-        mrkdwn_in: ['text', 'pretext']
-      }
-    })
-
- 
-
-    let msg = _.defaults({
-      channel: payload.channel_name,
-      attachments: attachments
-    }, msgDefaults)
-
-    res.set('content-type', 'application/json')
-    res.status(200).json(msg)
-    return
-  })
+  res.set('content-type', 'application/json')
+  res.status(200).json(msg)
+  return
 }
+
+
+
 
 module.exports = { pattern: /move/ig, handler: handler }
