@@ -17,12 +17,18 @@ const handler = (payload, res) => {
 
     var attachments = repos.slice(0, 5).map((repo) => {
       return {
-        title: `${repo.owner}/${repo.title} `,
-        title_link: repo.url,
-        text: `_${repo.description}_\n${repo.language} • ${repo.star}>`,
+        title: `Wow a move!`,
+        // title_link: repo.url,
+        text:  ```| X | O | O |
+                  |---+---+---|
+                  | O | X | X |
+                  |---+---+---|
+                  | X | O | X |```,
         mrkdwn_in: ['text', 'pretext']
       }
     })
+
+ 
 
     let msg = _.defaults({
       channel: payload.channel_name,
@@ -35,4 +41,4 @@ const handler = (payload, res) => {
   })
 }
 
-module.exports = { pattern: /repos/ig, handler: handler }
+module.exports = { pattern: /move/ig, handler: handler }
