@@ -31,6 +31,8 @@ let attachments = [
 
 
 const handler = (payload, res) => {
+  count = count + 1
+
   let msg = _.defaults({
     channel: payload.channel_name,
     attachments: attachments
