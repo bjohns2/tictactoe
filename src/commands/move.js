@@ -11,7 +11,7 @@ const msgDefaults = {
   icon_emoji: config('ICON_EMOJI')
 }
 
-board = "XXXOOOXXX"
+board = 'XXXOOOXXX'
 
 let attachments = [
   {
