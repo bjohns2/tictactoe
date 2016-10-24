@@ -11,13 +11,13 @@ const msgDefaults = {
   icon_emoji: config('ICON_EMOJI')
 }
 
-board = 'XXXOOOXXX'
+var board = 'XXXOOOXXX'
 
 let attachments = [
   {
     title: 'Starbot will help you find the hippest repos on GitHub!',
     color: '#2FA44F',
-    text: 'XXXOOOXXX', //board,
+    text: board,
     mrkdwn_in: ['text']
   },
   {
