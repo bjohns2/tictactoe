@@ -18,7 +18,7 @@ let attachments = [
   {
     title: 'Starbot will help you find the hippest repos on GitHub!',
     color: '#2FA44F',
-    text: board + ' ' + count
+    text: board + ' ' + count,
     mrkdwn_in: ['text']
   },
   {
