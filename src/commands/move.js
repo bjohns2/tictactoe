@@ -27,7 +27,7 @@ const handler = (ticTacToe, payload, res) => {
   var myboard = ticTacToe.boardsList[payload.channel_id]
   var move_string =  payload.text.split(" ")[1];
   var valid_move = makeMove(myboard,move_string,payload.user_name);
-  boardsList[payload.channel_id] = myboard
+  ticTacToe.boardsList[payload.channel_id] = myboard
 
   let msg = _.defaults({
     channel: payload.channel_name,
