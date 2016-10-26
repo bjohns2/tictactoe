@@ -74,7 +74,14 @@ function makeMove(board,move) {
   if (square == -1 || board.currentb[square] != " ") {
     return false;
   } 
-  board.currentb[square] = "X"
+  if (board.currentplayer == 1) {
+    board.currentb[square] = "X"
+    board.currentplayer = 0
+  } else {
+    board.currentb[square] = "0"
+    board.currentplayer = 1
+  }
+  
   return true;
 }
 
