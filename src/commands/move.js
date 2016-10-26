@@ -13,6 +13,8 @@ const msgDefaults = {
   icon_emoji: config('ICON_EMOJI')
 }
 
+var myboard2 = "wow"
+
 
 
 let attachments = [
@@ -32,7 +34,7 @@ let attachments = [
 
 
 const handler = (myboard, payload, res) => {
-  var myboard2 = myboard
+  myboard2 = myboard
 
   let msg = _.defaults({
     channel: payload.channel_name,
