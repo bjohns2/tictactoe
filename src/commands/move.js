@@ -24,7 +24,7 @@ let attachments = [
   {
     title: 'Configuring Starbot',
     color: '#E3E4E6',
-    text: myboard,
+    text: '`/starbot help` ... you\'re lookin at it! \n',
     mrkdwn_in: ['text']
   }
 ]
@@ -32,7 +32,7 @@ let attachments = [
 
 const handler = (payload, res) => {
   // bot.count = bot.count + 1
-
+  
   let msg = _.defaults({
     channel: payload.channel_name,
     attachments: attachments
