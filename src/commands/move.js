@@ -21,7 +21,7 @@ var myboard2 = "wow"
 
 
 const handler = (myboard, payload, res) => {
-  myboard2 = myboard
+  myboard = myboard + "x"
 
   let msg = _.defaults({
     channel: payload.channel_name,
