@@ -31,6 +31,7 @@ const handler = (ticTacToe, payload, res) => {
   myboard.player0 = payload.user_name
   myboard.player1 = move_string
   myboard.currentb = [" "," "," "," "," "," "," "," "," "]
+  myboard.currentplayer = 0
   var channel = payload.channel_id
   ticTacToe.boardsList[channel] = myboard
 
