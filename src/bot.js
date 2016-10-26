@@ -9,6 +9,8 @@ let bot = slack.rtm.client()
 
 bot.started((payload) => {
   this.self = payload.self
+  this.board = 'XXXOOOXXX'
+  this.count = 1
 })
 
 bot.message((msg) => {
