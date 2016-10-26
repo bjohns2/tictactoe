@@ -9,23 +9,14 @@ const trending = require('github-trending')
 
 const msgDefaults = {
   response_type: 'in_channel',
-  username: 'Starbot',
+  username: 'TicTacToe',
   icon_emoji: config('ICON_EMOJI')
 }
 
-// var myboard2 = "wow"
-
-
-
+// Handle the input! 
 const handler = (ticTacToe, payload, res) => {
-  // if (myboard.currentb[0] == "X") {
-  //   myboard.currentb[0] = "O"
-  // } else {
-  //   myboard.currentb[0] = "X"
-  // }
-  // myboard.currentb = myboard.currentb + "o"
+  // Just get the board and show it, is all
   var myboard = ticTacToe.boardsList[payload.channel_id]
-
   var attach = attachments(myboard,payload, 0)
 
   let msg = _.defaults({
@@ -39,19 +30,15 @@ const handler = (ticTacToe, payload, res) => {
 }
 
 
-
+// Make the attachments!
 function attachments(myboard,payload) {
-  var player = "someone's"
-  console.log(player)
-  console.log(board)
+  var player = "nobody" // if the game is over, it's nobody's turn
   if (myboard.currentplayer == 1) {
     player = myboard.player1
-  } else {
+  } else if (myboard.currentplayer == 0) {
     player = myboard.player0
   }
   var board = boardify(myboard.currentb)
-  console.log(player)
-  var messages = ["Sorry, you can't make that move.","Good move!","X won!","O won!","Tie :|","Here you go!"]
   var attachments = [
   {
     title: "Here's the current board: ",

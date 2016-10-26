@@ -9,25 +9,16 @@ const trending = require('github-trending')
 
 const msgDefaults = {
   response_type: 'in_channel',
-  username: 'Starbot',
+  username: 'TicTacToe',
   icon_emoji: config('ICON_EMOJI')
 }
 
-// var myboard2 = "wow"
 
-
-
+// Handle the input! 
 const handler = (ticTacToe, payload, res) => {
-  // if (myboard.currentb[0] == "X") {
-  //   myboard.currentb[0] = "O"
-  // } else {
-  //   myboard.currentb[0] = "X"
-  // }
-  // myboard.currentb = myboard.currentb + "o"
-  console.log("hi")
   var move_string =  payload.text.split(" ")[1];
-  // boardsList[payload.channel_id] = {}
-  var myboard = {} //boardsList[payload.channel_id]
+  // Make a new board with setup
+  var myboard = {} 
   myboard.player0 = payload.user_name
   myboard.player1 = move_string
   myboard.currentb = [" "," "," "," "," "," "," "," "," "]
@@ -45,7 +36,7 @@ const handler = (ticTacToe, payload, res) => {
   return
 }
 
-
+// Make the attachments
 function attachments(board,payload) {
   var attachments = [
   {

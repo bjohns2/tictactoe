@@ -9,45 +9,37 @@ const trending = require('github-trending')
 
 const msgDefaults = {
   response_type: 'in_channel',
-  username: 'Starbot',
+  username: 'ticTacToe',
   icon_emoji: config('ICON_EMOJI')
 }
 
-// var myboard2 = "wow"
 
 
-
+// Handle the input! 
 const handler = (ticTacToe, payload, res) => {
-  // if (myboard.currentb[0] == "X") {
-  //   myboard.currentb[0] = "O"
-  // } else {
-  //   myboard.currentb[0] = "X"
-  // }
-  // myboard.currentb = myboard.currentb + "o"
   var myboard = ticTacToe.boardsList[payload.channel_id]
   var move_string =  payload.text.split(" ")[1];
+  // Make a Move
   var valid_move = makeMove(myboard,move_string,payload.user_name);
   ticTacToe.boardsList[payload.channel_id] = myboard
-  // console.log(myboard)
-  // console.log(ticTacToe)
-  var attach = attachments(boardify(myboard.currentb),payload, 0)
+  var attach = attachments(myboard,payload, 0)
   if (valid_move == false) {
     // return "invalid move" messge
-    attach = attachments(boardify(myboard.currentb),payload, 0)
+    attach = attachments(myboard,payload, 0)
   } else {
     // check if someone won or the game ended
     var result = endgame(myboard)
     if (result == "") {
-      attach = attachments(boardify(myboard.currentb),payload, 1)
+      attach = attachments(myboard,payload, 1)
     } else if (result == "X") {
       myboard.currentplayer = 2
-      attach = attachments(boardify(myboard.currentb),payload, 2)
+      attach = attachments(myboard,payload, 2)
     } else if (result == "O") {
       myboard.currentplayer = 2
-      attach = attachments(boardify(myboard.currentb),payload, 3)
+      attach = attachments(myboard,payload, 3)
     } else if (result == "tie") {
       myboard.currentplayer = 2
-      attach = attachments(boardify(myboard.currentb),payload, 4)
+      attach = attachments(myboard,payload, 4)
     }
   }
 
@@ -61,6 +53,7 @@ const handler = (ticTacToe, payload, res) => {
   return
 }
 
+// Check if the game is over via someone winning or a tie
 function endgame(board) {
   var b = board.currentb
   var winner = ""
@@ -86,6 +79,7 @@ function endgame(board) {
   return winner
 }
 
+// Make a move for a player; modifies board
 function makeMove(board,move,player) {
   console.log(board)
   console.log(move)
@@ -136,13 +130,21 @@ function makeMove(board,move,player) {
   return true;
 }
 
+// Make the output! 
 // case: 
 //  0 : invalid move 
 //  1 : valid move
 //  2 : valid move, X won
 //  3 : valid move, O won
 //  4 : valid move, tie
-function attachments(board,payload,casenum) {
+function attachments(myboard,payload) {
+  var player = "nobody" // if the game is over, it's nobody's turn
+  if (myboard.currentplayer == 1) {
+    player = myboard.player1
+  } else if (myboard.currentplayer == 0) {
+    player = myboard.player0
+  }
+  var board = boardify(myboard.currentb)
   var messages = ["Sorry, you can't make that move.","Good move!","X won!","O won!","Tie :|"]
   var attachments = [
   {
@@ -154,14 +156,14 @@ function attachments(board,payload,casenum) {
   {
     title: 'Next',
     color: '#E3E4E6',
-    text: messages[casenum],
+    text: messages[casenum] + "\nIt's currently " +player+ "'s turn!",
     mrkdwn_in: ['text']
   }
 ]
 return attachments
 }
 
-// Takes in simple board array; returns pretty string
+// Takes in simple board array; returns prettier string
 function boardify(board) {
   return '```| '+board[0]+' | '+board[1]+' | '+board[2]+' |\n|---+---+---|\n| '+board[3]+' | '+board[4]+' | '+board[5]+' |\n|---+---+---|\n| '+board[6]+' | '+board[7]+' | '+board[8]+' |```'
 }
