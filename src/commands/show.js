@@ -26,7 +26,7 @@ const handler = (ticTacToe, payload, res) => {
   // myboard.currentb = myboard.currentb + "o"
   var myboard = ticTacToe.boardsList[payload.channel_id]
 
-  var attach = attachments(boardify(myboard.currentb),payload, 0)
+  var attach = attachments(myboard,payload, 0)
 
   let msg = _.defaults({
     channel: payload.channel_name,
@@ -40,15 +40,16 @@ const handler = (ticTacToe, payload, res) => {
 
 
 
-function attachments(board,payload) {
+function attachments(myboard,payload) {
   var player = "someone's"
   console.log(player)
   console.log(board)
-  if (board.currentplayer == 1) {
-    player = board.player1
+  if (myboard.currentplayer == 1) {
+    player = myboard.player1
   } else {
-    player = board.player0
+    player = myboard.player0
   }
+  var board = boardify(myboard.currentb)
   console.log(player)
   var messages = ["Sorry, you can't make that move.","Good move!","X won!","O won!","Tie :|","Here you go!"]
   var attachments = [
