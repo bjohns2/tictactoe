@@ -17,16 +17,17 @@ const msgDefaults = {
 
 
 
-const handler = (boardsList, payload, res) => {
+const handler = (ticTacToe, payload, res) => {
   // if (myboard.currentb[0] == "X") {
   //   myboard.currentb[0] = "O"
   // } else {
   //   myboard.currentb[0] = "X"
   // }
   // myboard.currentb = myboard.currentb + "o"
-  var myboard = boardsList[payload.channel_id]
+  var myboard = ticTacToe.boardsList[payload.channel_id]
   var move_string =  payload.text.split(" ")[1];
   var valid_move = makeMove(myboard,move_string,payload.user_name);
+  boardsList[payload.channel_id] = myboard
 
   let msg = _.defaults({
     channel: payload.channel_name,
