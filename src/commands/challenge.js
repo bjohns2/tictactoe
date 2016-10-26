@@ -16,10 +16,6 @@ const msgDefaults = {
 // var myboard2 = "wow"
 
 
-
-
-
-
 const handler = (myboard, payload, res) => {
   // if (myboard.currentb[0] == "X") {
   //   myboard.currentb[0] = "O"
@@ -28,9 +24,9 @@ const handler = (myboard, payload, res) => {
   // }
   // myboard.currentb = myboard.currentb + "o"
   var player_string =  payload.text.split(" ")[1];
-  myboard.player1 = player_string
-  myboard.player0 = payload.user_name
-  myboard.currentb = [" "," "," "," "," "," "," "," "," "]
+  // myboard.player1 = player_string
+  // myboard.player0 = payload.user_name
+  // myboard.currentb = [" "," "," "," "," "," "," "," "," "]
   // var valid_move = makeMove(myboard,move_string,payload.user_name);
 
   let msg = _.defaults({
