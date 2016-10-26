@@ -15,6 +15,10 @@ let app = express()
 
 var myboard = {}
 myboard.currentb = [" "," "," "," "," "," "," "," "," "]
+myboard.player1 = ""
+myboard.player2 = ""
+myboard.currentplayer = 0
+
 
 if (config('PROXY_URI')) {
   app.use(proxy(config('PROXY_URI'), {
