@@ -47,7 +47,7 @@ app.post('/commands/starbot', (req, res) => {
     return payload.text.match(cmd.pattern) ? cmd : a
   }, helpCommand)
 
-  cmd.handler(ticTacToe.boardsList, payload, res)
+  cmd.handler(ticTacToe, payload, res)
 })
 
 app.listen(config('PORT'), (err) => {

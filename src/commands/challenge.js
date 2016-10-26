@@ -17,7 +17,7 @@ const msgDefaults = {
 
 
 
-const handler = (boardsList, payload, res) => {
+const handler = (ticTacToe, payload, res) => {
   // if (myboard.currentb[0] == "X") {
   //   myboard.currentb[0] = "O"
   // } else {
@@ -31,7 +31,7 @@ const handler = (boardsList, payload, res) => {
   myboard.player1 = move_string
   myboard.currentb = [" "," "," "," "," "," "," "," "," "]
   channel = payload.channel_id
-  boardsList.channel = myboard
+  ticTacToe.boardsList[channel] = myboard
 
   let msg = _.defaults({
     channel: payload.channel_name,
