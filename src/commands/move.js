@@ -63,21 +63,21 @@ function endgame(board) {
   var b = board.currentb
   var winner = ""
   switch (b){ 
-    case (b[0] == b[1] && b[1] == b[2]):
+    case (b[0] == b[1] && b[1] == b[2] && b[0] != " "):
       winner = b[0]
-    case (b[3] == b[4] && b[4] == b[5]):
+    case (b[3] == b[4] && b[4] == b[5] && b[3] != " "):
       winner = b[3]
-    case (b[6] == b[7] && b[7] == b[8]):
+    case (b[6] == b[7] && b[7] == b[8] && b[6] != " "):
       winner = b[6]
-    case (b[0] == b[3] && b[3] == b[6]):
+    case (b[0] == b[3] && b[3] == b[6] && b[0] != " "):
       winner = b[0]
-    case (b[1] == b[4] && b[4] == b[7]):
+    case (b[1] == b[4] && b[4] == b[7] && b[1] != " "):
       winner = b[1]
-    case (b[2] == b[5] && b[5] == b[8]):
+    case (b[2] == b[5] && b[5] == b[8] && b[2] != " "):
       winner = b[2]
-    case (b[0] == b[4] && b[4] == b[8]):
+    case (b[0] == b[4] && b[4] == b[8] && b[0] != " "):
       winner = b[0]
-    case (b[2] == b[4] && b[4] == b[6]):
+    case (b[2] == b[4] && b[4] == b[6] && b[2] != " "):
       winner = b[2]
   }
   if (b[0] != " " && b[1] != " " && b[2] != " " && b[3] != " " && b[4] != " " && b[5] != " " && b[6] != " " && b[7] != " " && b[8] != " " ){
