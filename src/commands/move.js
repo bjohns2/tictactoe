@@ -3,7 +3,7 @@
 
 const _ = require('lodash')
 const config = require('../config')
-const config = require('../bot')
+const bot = require('../bot')
 const trending = require('github-trending')
 
 const msgDefaults = {
@@ -31,7 +31,7 @@ let attachments = [
 
 
 const handler = (payload, res) => {
-  this.count = this.count + 1
+  bot.count = bot.count + 1
 
   let msg = _.defaults({
     channel: payload.channel_name,
