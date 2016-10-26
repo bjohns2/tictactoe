@@ -28,17 +28,62 @@ const handler = (ticTacToe, payload, res) => {
   var move_string =  payload.text.split(" ")[1];
   var valid_move = makeMove(myboard,move_string,payload.user_name);
   ticTacToe.boardsList[payload.channel_id] = myboard
-  console.log(myboard)
-  console.log(ticTacToe)
+  // console.log(myboard)
+  // console.log(ticTacToe)
+  var attachments = attachments(boardify(myboard.currentb),payload)
+  if (valid_move == false) {
+    // return "invalid move" messge
+    attachments = attachments(boardify(myboard.currentb),payload, 0)
+  } else {
+    // check if someone won or the game ended
+    var endgame = endgame(myboard)
+    // game not ended
+    if (endgame == "") {
+      attachments = attachments(boardify(myboard.currentb),payload, 1)
+    } else if (endgame == "X") {
+      attachments = attachments(boardify(myboard.currentb),payload, 2)
+    } else if (endgame == "O") {
+      attachments = attachments(boardify(myboard.currentb),payload, 3)
+    } else if (endgame == "tie") {
+      attachments = attachments(boardify(myboard.currentb),payload, 4)
+    }
+  }
 
   let msg = _.defaults({
     channel: payload.channel_name,
-    attachments: attachments(boardify(myboard.currentb),payload)
+    attachments: attachments
   }, msgDefaults)
 
   res.set('content-type', 'application/json')
   res.status(200).json(msg)
   return
+}
+
+function endgame(board) {
+  var b = board.currentb
+  var winner = ""
+  switch (b){ 
+    case (b[0] == b[1] && b[1] == b[2]):
+      winner = b[0]
+    case (b[3] == b[4] && b[4] == b[5]):
+      winner = b[3]
+    case (b[6] == b[7] && b[7] == b[8]):
+      winner = b[6]
+    case (b[0] == b[3] && b[3] == b[6]):
+      winner = b[0]
+    case (b[1] == b[4] && b[4] == b[7]):
+      winner = b[1]
+    case (b[2] == b[5] && b[5] == b[8]):
+      winner = b[2]
+    case (b[0] == b[4] && b[4] == b[8]):
+      winner = b[0]
+    case (b[2] == b[4] && b[4] == b[6]):
+      winner = b[2]
+  }
+  if (b[0] != " " && b[1] != " " && b[2] != " " && b[3] != " " && b[4] != " " && b[5] != " " && b[6] != " " && b[7] != " " && b[8] != " " ){
+    winner = "tie"
+  }
+  return winner
 }
 
 function makeMove(board,move,player) {
@@ -91,7 +136,14 @@ function makeMove(board,move,player) {
   return true;
 }
 
-function attachments(board,payload) {
+// case: 
+//  0 : invalid move 
+//  1 : valid move
+//  2 : valid move, X won
+//  3 : valid move, O won
+//  4 : valid move, tie
+function attachments(board,payload,casenum) {
+  var messages = ["bad move","good move","X won!","O won!","tie"]
   var attachments = [
   {
     title: 'You made a move!',
@@ -102,7 +154,7 @@ function attachments(board,payload) {
   {
     title: 'Next',
     color: '#E3E4E6',
-    text: payload.text.split(" ")[1],
+    text: messages[casenum],
     mrkdwn_in: ['text']
   }
 ]
