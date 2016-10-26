@@ -38,7 +38,7 @@ function attachments(board) {
   {
     title: 'Starbot will help you find the hippest repos on GitHub!',
     color: '#2FA44F',
-    text: myboard2,
+    text: board,
     mrkdwn_in: ['text']
   },
   {
