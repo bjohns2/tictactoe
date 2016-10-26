@@ -11,8 +11,7 @@ const msgDefaults = {
   icon_emoji: config('ICON_EMOJI')
 }
 
-var board = 'XXXOOOXXX'
-var count = 1
+
 
 let attachments = [
   {
@@ -31,7 +30,7 @@ let attachments = [
 
 
 const handler = (payload, res) => {
-  count = count + 1
+  this.count = this.count + 1
 
   let msg = _.defaults({
     channel: payload.channel_name,
