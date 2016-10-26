@@ -137,7 +137,7 @@ function makeMove(board,move,player) {
 //  2 : valid move, X won
 //  3 : valid move, O won
 //  4 : valid move, tie
-function attachments(myboard,payload) {
+function attachments(myboard,payload,casenum) {
   var player = "nobody" // if the game is over, it's nobody's turn
   if (myboard.currentplayer == 1) {
     player = myboard.player1
