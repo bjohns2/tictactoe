@@ -40,7 +40,7 @@ const handler = (myboard, payload, res) => {
   return
 }
 
-function makeMove(board, move) {
+function makeMove(board,move_string) {
   // var square = -1;
   // switch (move) {
   //     case "UL":
