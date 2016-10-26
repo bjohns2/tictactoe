@@ -27,8 +27,7 @@ const handler = (myboard, payload, res) => {
   //   myboard.currentb[0] = "X"
   // }
   // myboard.currentb = myboard.currentb + "o"
- 
-  // valid_move = make_move(myboard, payload.text.split(" ")[1])
+  var valid_move = make_move(myboard, payload.text.split(" ")[1])
 
   let msg = _.defaults({
     channel: payload.channel_name,
