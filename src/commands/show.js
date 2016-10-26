@@ -25,31 +25,8 @@ const handler = (ticTacToe, payload, res) => {
   // }
   // myboard.currentb = myboard.currentb + "o"
   var myboard = ticTacToe.boardsList[payload.channel_id]
-  var move_string =  payload.text.split(" ")[1];
-  var valid_move = makeMove(myboard,move_string,payload.user_name);
-  ticTacToe.boardsList[payload.channel_id] = myboard
-  // console.log(myboard)
-  // console.log(ticTacToe)
+
   var attach = attachments(boardify(myboard.currentb),payload, 0)
-  if (valid_move == false) {
-    // return "invalid move" messge
-    attach = attachments(boardify(myboard.currentb),payload, 0)
-  } else {
-    // check if someone won or the game ended
-    var result = endgame(myboard)
-    if (result == "") {
-      attach = attachments(boardify(myboard.currentb),payload, 1)
-    } else if (result == "X") {
-      myboard.currentplayer = 2
-      attach = attachments(boardify(myboard.currentb),payload, 2)
-    } else if (result == "O") {
-      myboard.currentplayer = 2
-      attach = attachments(boardify(myboard.currentb),payload, 3)
-    } else if (result == "tie") {
-      myboard.currentplayer = 2
-      attach = attachments(boardify(myboard.currentb),payload, 4)
-    }
-  }
 
   let msg = _.defaults({
     channel: payload.channel_name,
