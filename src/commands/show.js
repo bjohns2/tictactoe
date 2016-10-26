@@ -41,6 +41,12 @@ const handler = (ticTacToe, payload, res) => {
 
 
 function attachments(board,payload) {
+  var player = "someone's"
+  if (board.currentplayer) == 1 {
+    player = board.player1
+  } else {
+    player = board.player0
+  }
   var messages = ["Sorry, you can't make that move.","Good move!","X won!","O won!","Tie :|","Here you go!"]
   var attachments = [
   {
@@ -52,7 +58,7 @@ function attachments(board,payload) {
   {
     title: 'The Deets',
     color: '#E3E4E6',
-    text: "It's " + board.currentplayer + "'s turn!",
+    text: "It's " + player + "'s turn!",
     mrkdwn_in: ['text']
   }
 ]
