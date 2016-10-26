@@ -36,15 +36,15 @@ const handler = (ticTacToe, payload, res) => {
     attach = attachments(boardify(myboard.currentb),payload, 0)
   } else {
     // check if someone won or the game ended
-    var endgame = endgame(myboard)
+    var result = endgame(myboard)
     // game not ended
-    if (endgame == "") {
+    if (result == "") {
       attach = attachments(boardify(myboard.currentb),payload, 1)
-    } else if (endgame == "X") {
+    } else if (result == "X") {
       attach = attachments(boardify(myboard.currentb),payload, 2)
-    } else if (endgame == "O") {
+    } else if (result == "O") {
       attach = attachments(boardify(myboard.currentb),payload, 3)
-    } else if (endgame == "tie") {
+    } else if (result == "tie") {
       attach = attachments(boardify(myboard.currentb),payload, 4)
     }
   }
