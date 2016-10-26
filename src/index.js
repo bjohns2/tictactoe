@@ -14,10 +14,10 @@ let bot = require('./bot')
 let app = express()
 
 var boardsList = {}
-myboard.currentb = [" "," "," "," "," "," "," "," "," "]
-myboard.player1 = ""
-myboard.player0 = ""
-myboard.currentplayer = 0
+// myboard.currentb = [" "," "," "," "," "," "," "," "," "]
+// myboard.player1 = ""
+// myboard.player0 = ""
+// myboard.currentplayer = 0
 
 
 if (config('PROXY_URI')) {
