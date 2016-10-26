@@ -24,7 +24,7 @@ let attachments = [
   {
     title: 'Configuring Starbot',
     color: '#E3E4E6',
-    text: bot,
+    text: myboard,
     mrkdwn_in: ['text']
   }
 ]
