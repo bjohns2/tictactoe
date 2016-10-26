@@ -49,7 +49,7 @@ function attachments(board,payload) {
   {
     title: 'Next',
     color: '#E3E4E6',
-    text: payload.text,
+    text: payload.text.split(" ")[1],
     mrkdwn_in: ['text']
   }
 ]
