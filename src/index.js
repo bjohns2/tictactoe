@@ -14,7 +14,7 @@ let bot = require('./bot')
 let app = express()
 
 var myboard = {}
-myboard.currentb = "xxxxx"
+myboard.currentb = [" "," "," "," "," "," "," "," "," "]
 
 if (config('PROXY_URI')) {
   app.use(proxy(config('PROXY_URI'), {

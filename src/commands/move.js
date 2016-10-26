@@ -21,11 +21,16 @@ const msgDefaults = {
 
 
 const handler = (myboard, payload, res) => {
-  myboard.currentb = myboard.currentb + "o"
+  if (myboard.currentb[0] == "X") {
+    myboard.currentb[0] = "O"
+  } else {
+    myboard.currentb[0] = "X"
+  }
+  // myboard.currentb = myboard.currentb + "o"
 
   let msg = _.defaults({
     channel: payload.channel_name,
-    attachments: attachments(myboard.currentb)
+    attachments: attachments(boardify(myboard.currentb))
   }, msgDefaults)
 
   res.set('content-type', 'application/json')
@@ -49,6 +54,11 @@ function attachments(board) {
   }
 ]
 return attachments
+}
+
+// Takes in simple board array; returns pretty string
+function boardify(board) {
+  return '```| '+board[0]+' | '+board[1]+' | '+board[2]+' |\n|---+---+---|\n| '+board[3]+' | '+board[4]+' | '+board[5]+' |\n|---+---+---|\n| '+board[6]+' | '+board[7]+' | '+board[8]+' |```'
 }
 
 
