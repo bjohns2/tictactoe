@@ -42,11 +42,14 @@ const handler = (ticTacToe, payload, res) => {
 
 function attachments(board,payload) {
   var player = "someone's"
+  console.log(player)
+  console.log(board)
   if (board.currentplayer == 1) {
     player = board.player1
   } else {
     player = board.player0
   }
+  console.log(player)
   var messages = ["Sorry, you can't make that move.","Good move!","X won!","O won!","Tie :|","Here you go!"]
   var attachments = [
   {
