@@ -46,7 +46,7 @@ app.post('/commands/starbot', (req, res) => {
     return payload.text.match(cmd.pattern) ? cmd : a
   }, helpCommand)
 
-  cmd.handler(myboard, payload, res)
+  cmd.handler(boardsList, payload, res)
 })
 
 app.listen(config('PORT'), (err) => {
