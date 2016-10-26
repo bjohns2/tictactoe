@@ -74,7 +74,7 @@ function makeMove(board,move,player) {
   if (board.currentplayer == 1 && board.player1 == player) {
     board.currentb[square] = "X"
     board.currentplayer = 0
-  } else if (board.currentplayer == 0 && board.player0 == player)){
+  } else if (board.currentplayer == 0 && board.player0 == player) {
     board.currentb[square] = "O"
     board.currentplayer = 1
   } else {
