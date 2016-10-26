@@ -30,7 +30,7 @@ const handler = (myboard, payload, res) => {
 
   let msg = _.defaults({
     channel: payload.channel_name,
-    attachments: attachments(boardify(myboard.currentb))
+    attachments: attachments(boardify(myboard.currentb),payload)
   }, msgDefaults)
 
   res.set('content-type', 'application/json')
@@ -38,7 +38,7 @@ const handler = (myboard, payload, res) => {
   return
 }
 
-function attachments(board) {
+function attachments(board,payload) {
   var attachments = [
   {
     title: 'You made a move!',
@@ -49,7 +49,7 @@ function attachments(board) {
   {
     title: 'Next',
     color: '#E3E4E6',
-    text: 'I will make a move',
+    text: payload,
     mrkdwn_in: ['text']
   }
 ]
