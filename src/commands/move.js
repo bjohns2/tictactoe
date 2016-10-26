@@ -30,28 +30,28 @@ const handler = (ticTacToe, payload, res) => {
   ticTacToe.boardsList[payload.channel_id] = myboard
   // console.log(myboard)
   // console.log(ticTacToe)
-  var attachments = attachments(boardify(myboard.currentb),payload)
+  var attach = attachments(boardify(myboard.currentb),payload)
   if (valid_move == false) {
     // return "invalid move" messge
-    attachments = attachments(boardify(myboard.currentb),payload, 0)
+    attach = attachments(boardify(myboard.currentb),payload, 0)
   } else {
     // check if someone won or the game ended
     var endgame = endgame(myboard)
     // game not ended
     if (endgame == "") {
-      attachments = attachments(boardify(myboard.currentb),payload, 1)
+      attach = attachments(boardify(myboard.currentb),payload, 1)
     } else if (endgame == "X") {
-      attachments = attachments(boardify(myboard.currentb),payload, 2)
+      attach = attachments(boardify(myboard.currentb),payload, 2)
     } else if (endgame == "O") {
-      attachments = attachments(boardify(myboard.currentb),payload, 3)
+      attach = attachments(boardify(myboard.currentb),payload, 3)
     } else if (endgame == "tie") {
-      attachments = attachments(boardify(myboard.currentb),payload, 4)
+      attach = attachments(boardify(myboard.currentb),payload, 4)
     }
   }
 
   let msg = _.defaults({
     channel: payload.channel_name,
-    attachments: attachments
+    attachments: attach
   }, msgDefaults)
 
   res.set('content-type', 'application/json')
