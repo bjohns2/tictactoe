@@ -50,7 +50,7 @@ function attachments(board,payload) {
   {
     title: 'Players: ',
     color: '#E3E4E6',
-    text: board.player0 + " and " + board.player1,
+    text: "and " , //board.player0 + " and " + board.player1,
     mrkdwn_in: ['text']
   }
 ]
