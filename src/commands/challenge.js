@@ -24,6 +24,7 @@ const handler = (ticTacToe, payload, res) => {
   //   myboard.currentb[0] = "X"
   // }
   // myboard.currentb = myboard.currentb + "o"
+  console.log("hi")
   var move_string =  payload.text.split(" ")[1];
   // boardsList[payload.channel_id] = {}
   var myboard = {} //boardsList[payload.channel_id]
