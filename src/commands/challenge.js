@@ -30,7 +30,7 @@ const handler = (boardsList, payload, res) => {
   myboard.player0 = payload.user_name
   myboard.player1 = move_string
   myboard.currentb = [" "," "," "," "," "," "," "," "," "]
-  boardsList[payload.channel_id] = myboard
+  // boardsList[payload.channel_id] = myboard
 
 
   let msg = _.defaults({
