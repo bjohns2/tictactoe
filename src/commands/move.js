@@ -41,7 +41,7 @@ const handler = (myboard, payload, res) => {
 function attachments(board) {
   var attachments = [
   {
-    title: 'Starbot will help you find the hippest repos on GitHub!',
+    title: 'You made a move!',
     color: '#2FA44F',
     text: board,
     mrkdwn_in: ['text']
