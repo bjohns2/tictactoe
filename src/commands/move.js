@@ -43,6 +43,8 @@ const handler = (ticTacToe, payload, res) => {
 
 function makeMove(board,move,player) {
   console.log(board)
+  console.log(move)
+  console.log(player)
   var square = -1;
   switch (move) {
       case "UL":
