@@ -25,11 +25,13 @@ const handler = (myboard, payload, res) => {
   // }
   // myboard.currentb = myboard.currentb + "o"
   var move_string =  payload.text.split(" ")[1];
-  var valid_move = makeMove(myboard,move_string,payload.user_name);
+  myboard.player0 = payload.user_name
+  myboard.player1 = move_string
+  myboard.currentb = [" "," "," "," "," "," "," "," "," "]
 
   let msg = _.defaults({
     channel: payload.channel_name,
-    attachments: attachments(boardify(myboard.currentb),payload)
+    attachments: attachments(myboard,payload)
   }, msgDefaults)
 
   res.set('content-type', 'application/json')
@@ -37,65 +39,19 @@ const handler = (myboard, payload, res) => {
   return
 }
 
-function makeMove(board,move,player) {
-  var square = -1;
-  switch (move) {
-      case "UL":
-          square = 0;
-          break;
-      case "UM":
-          square = 1;
-          break;
-      case "UR":
-          square = 2;
-          break;
-      case "ML":
-          square = 3;
-          break;
-      case "MM":
-          square = 4;
-          break;
-      case "MR":
-          square = 5;
-          break;
-      case "LL":
-          square = 6;
-          break;
-      case "LM":
-          square = 7;
-          break;
-      case "LR":
-          square = 8;
-          break;
-  }
-  if (square == -1 || board.currentb[square] != " ") {
-    return false;
-  } 
-  if (board.currentplayer == 1 && board.player1 == player) {
-    board.currentb[square] = "X"
-    board.currentplayer = 0
-  } else if (board.currentplayer == 0 && board.player0 == player) {
-    board.currentb[square] = "O"
-    board.currentplayer = 1
-  } else {
-    return false
-  }
-  
-  return true;
-}
 
 function attachments(board,payload) {
   var attachments = [
   {
     title: 'You made a move!',
     color: '#2FA44F',
-    text: board,
+    text: boardify(board.currentb),
     mrkdwn_in: ['text']
   },
   {
     title: 'Next',
     color: '#E3E4E6',
-    text: payload.text.split(" ")[1],
+    text: board.player0,
     mrkdwn_in: ['text']
   }
 ]
