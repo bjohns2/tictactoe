@@ -108,4 +108,4 @@ function boardify(board) {
 }
 
 
-module.exports = { pattern: /challenge/ig, handler: handler }
+module.exports = { pattern: /move/ig, handler: handler }
