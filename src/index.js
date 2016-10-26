@@ -13,7 +13,8 @@ let bot = require('./bot')
 
 let app = express()
 
-var boardsList = {}
+var ticTacToe = {}
+ticTacToe.boardsList = {}
 // myboard.currentb = [" "," "," "," "," "," "," "," "," "]
 // myboard.player1 = ""
 // myboard.player0 = ""
@@ -46,7 +47,7 @@ app.post('/commands/starbot', (req, res) => {
     return payload.text.match(cmd.pattern) ? cmd : a
   }, helpCommand)
 
-  cmd.handler(boardsList, payload, res)
+  cmd.handler(ticTacToe.gamesList, payload, res)
 })
 
 app.listen(config('PORT'), (err) => {
