@@ -30,7 +30,7 @@ const handler = (ticTacToe, payload, res) => {
   ticTacToe.boardsList[payload.channel_id] = myboard
   // console.log(myboard)
   // console.log(ticTacToe)
-  var attach = attachments(boardify(myboard.currentb),payload)
+  var attach = attachments(boardify(myboard.currentb),payload, 0)
   if (valid_move == false) {
     // return "invalid move" messge
     attach = attachments(boardify(myboard.currentb),payload, 0)
@@ -62,22 +62,21 @@ const handler = (ticTacToe, payload, res) => {
 function endgame(board) {
   var b = board.currentb
   var winner = ""
-  switch (b){ 
-    case (b[0] == b[1] && b[1] == b[2] && b[0] != " "):
+  if (b[0] == b[1] && b[1] == b[2] && b[0] != " ") {
       winner = b[0]
-    case (b[3] == b[4] && b[4] == b[5] && b[3] != " "):
+  } else if (b[3] == b[4] && b[4] == b[5] && b[3] != " ") {
       winner = b[3]
-    case (b[6] == b[7] && b[7] == b[8] && b[6] != " "):
+  } else if (b[6] == b[7] && b[7] == b[8] && b[6] != " ") {
       winner = b[6]
-    case (b[0] == b[3] && b[3] == b[6] && b[0] != " "):
+  } else if (b[0] == b[3] && b[3] == b[6] && b[0] != " ") {
       winner = b[0]
-    case (b[1] == b[4] && b[4] == b[7] && b[1] != " "):
+  } else if (b[1] == b[4] && b[4] == b[7] && b[1] != " ") {
       winner = b[1]
-    case (b[2] == b[5] && b[5] == b[8] && b[2] != " "):
+  } else if (b[2] == b[5] && b[5] == b[8] && b[2] != " ") {
       winner = b[2]
-    case (b[0] == b[4] && b[4] == b[8] && b[0] != " "):
+  } else if (b[0] == b[4] && b[4] == b[8] && b[0] != " ") {
       winner = b[0]
-    case (b[2] == b[4] && b[4] == b[6] && b[2] != " "):
+  } else if (b[2] == b[4] && b[4] == b[6] && b[2] != " ") {
       winner = b[2]
   }
   if (b[0] != " " && b[1] != " " && b[2] != " " && b[3] != " " && b[4] != " " && b[5] != " " && b[6] != " " && b[7] != " " && b[8] != " " ){
