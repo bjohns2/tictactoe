@@ -13,6 +13,8 @@ let bot = require('./bot')
 
 let app = express()
 
+var myboard = "xxxx"
+
 if (config('PROXY_URI')) {
   app.use(proxy(config('PROXY_URI'), {
     forwardPath: (req, res) => { return require('url').parse(req.url).path }
@@ -39,7 +41,7 @@ app.post('/commands/starbot', (req, res) => {
     return payload.text.match(cmd.pattern) ? cmd : a
   }, helpCommand)
 
-  cmd.handler(payload, res)
+  cmd.handler(myboard, payload, res)
 })
 
 app.listen(config('PORT'), (err) => {
