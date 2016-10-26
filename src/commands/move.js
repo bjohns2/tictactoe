@@ -3,6 +3,7 @@
 
 const _ = require('lodash')
 const config = require('../config')
+const config = require('../bot')
 const trending = require('github-trending')
 
 const msgDefaults = {
