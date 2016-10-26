@@ -25,8 +25,3 @@ This is Brittney Johnson's Slack Application Engineering: Technical Exercise. Al
 ### Thanks To:
 
 https://github.com/mattcreager/starbot, for providing a structure I used to bootstrap handling slash commands. 
-
-### License
-
-**[This project is licensed under the terms of the MIT license.](http://license-me.herokuapp.com)**
- -- [_Need your own? There's a button for that :wink:_](https://github.com/mattcreager/license)
