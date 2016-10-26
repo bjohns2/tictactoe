@@ -32,7 +32,7 @@ let attachments = [
 
 
 const handler = (myboard, payload, res) => {
-  // count = 1
+  myboard = myboard
 
   let msg = _.defaults({
     channel: payload.channel_name,
