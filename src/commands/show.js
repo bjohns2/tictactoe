@@ -61,100 +61,21 @@ const handler = (ticTacToe, payload, res) => {
   return
 }
 
-function endgame(board) {
-  var b = board.currentb
-  var winner = ""
-  if (b[0] == b[1] && b[1] == b[2] && b[0] != " ") {
-      winner = b[0]
-  } else if (b[3] == b[4] && b[4] == b[5] && b[3] != " ") {
-      winner = b[3]
-  } else if (b[6] == b[7] && b[7] == b[8] && b[6] != " ") {
-      winner = b[6]
-  } else if (b[0] == b[3] && b[3] == b[6] && b[0] != " ") {
-      winner = b[0]
-  } else if (b[1] == b[4] && b[4] == b[7] && b[1] != " ") {
-      winner = b[1]
-  } else if (b[2] == b[5] && b[5] == b[8] && b[2] != " ") {
-      winner = b[2]
-  } else if (b[0] == b[4] && b[4] == b[8] && b[0] != " ") {
-      winner = b[0]
-  } else if (b[2] == b[4] && b[4] == b[6] && b[2] != " ") {
-      winner = b[2]
-  } else if (b[0] != " " && b[1] != " " && b[2] != " " && b[3] != " " && b[4] != " " && b[5] != " " && b[6] != " " && b[7] != " " && b[8] != " " ){
-    winner = "tie"
-  }
-  return winner
-}
 
-function makeMove(board,move,player) {
-  console.log(board)
-  console.log(move)
-  console.log(player)
-  var square = -1;
-  switch (move) {
-      case "UL":
-          square = 0;
-          break;
-      case "UM":
-          square = 1;
-          break;
-      case "UR":
-          square = 2;
-          break;
-      case "ML":
-          square = 3;
-          break;
-      case "MM":
-          square = 4;
-          break;
-      case "MR":
-          square = 5;
-          break;
-      case "LL":
-          square = 6;
-          break;
-      case "LM":
-          square = 7;
-          break;
-      case "LR":
-          square = 8;
-          break;
-  }
-  if (square == -1 || board.currentb[square] != " ") {
-    return false;
-  } 
-  if (board.currentplayer == 1 && board.player1 == player) {
-    board.currentb[square] = "X"
-    board.currentplayer = 0
-  } else if (board.currentplayer == 0 && board.player0 == player) {
-    board.currentb[square] = "O"
-    board.currentplayer = 1
-  } else {
-    return false
-  }
-  console.log(board)
-  return true;
-}
 
-// case: 
-//  0 : invalid move 
-//  1 : valid move
-//  2 : valid move, X won
-//  3 : valid move, O won
-//  4 : valid move, tie
-function attachments(board,payload,casenum) {
-  var messages = ["Sorry, you can't make that move.","Good move!","X won!","O won!","Tie :|"]
+function attachments(board,payload,) {
+  var messages = ["Sorry, you can't make that move.","Good move!","X won!","O won!","Tie :|","Here you go!"]
   var attachments = [
   {
-    title: payload.user_name + ' made a move!',
+    title: "Here's the current board: ",
     color: '#2FA44F',
     text: board,
     mrkdwn_in: ['text']
   },
   {
-    title: 'Next',
+    title: 'The Deets',
     color: '#E3E4E6',
-    text: messages[casenum],
+    text: "It's " + board.currentplayer + "'s turn!",
     mrkdwn_in: ['text']
   }
 ]
