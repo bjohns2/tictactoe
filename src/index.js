@@ -13,7 +13,7 @@ let bot = require('./bot')
 
 let app = express()
 
-var myboard = {}
+var boardsList = {}
 myboard.currentb = [" "," "," "," "," "," "," "," "," "]
 myboard.player1 = ""
 myboard.player0 = ""

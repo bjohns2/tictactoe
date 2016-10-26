@@ -17,7 +17,7 @@ const msgDefaults = {
 
 
 
-const handler = (myboard, payload, res) => {
+const handler = (boardsList, payload, res) => {
   // if (myboard.currentb[0] == "X") {
   //   myboard.currentb[0] = "O"
   // } else {
@@ -25,6 +25,8 @@ const handler = (myboard, payload, res) => {
   // }
   // myboard.currentb = myboard.currentb + "o"
   var move_string =  payload.text.split(" ")[1];
+  boardsList[payload.channel_id] = {}
+  myboard = boardsList[payload.channel_id]
   myboard.player0 = payload.user_name
   myboard.player1 = move_string
   myboard.currentb = [" "," "," "," "," "," "," "," "," "]
