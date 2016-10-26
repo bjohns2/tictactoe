@@ -49,7 +49,7 @@ function attachments(board,payload) {
   {
     title: 'Next',
     color: '#E3E4E6',
-    text: payload,
+    text: payload.toString(),
     mrkdwn_in: ['text']
   }
 ]
