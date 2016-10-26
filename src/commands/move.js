@@ -31,7 +31,7 @@ let attachments = [
 ]
 
 
-const handler = (payload, res) => {
+const handler = (myboard, payload, res) => {
   // count = 1
 
   let msg = _.defaults({
