@@ -28,7 +28,7 @@ const handler = (myboard, payload, res) => {
   // }
   // myboard.currentb = myboard.currentb + "o"
   var move_string =  payload.text.split(" ")[1];
-  var valid_move = makeMove(myboard,move_string);
+  var valid_move = makeMove(myboard,move_string,payload.user_name);
 
   let msg = _.defaults({
     channel: payload.channel_name,
@@ -40,7 +40,7 @@ const handler = (myboard, payload, res) => {
   return
 }
 
-function makeMove(board,move) {
+function makeMove(board,move,player) {
   var square = -1;
   switch (move) {
       case "UL":
@@ -74,12 +74,14 @@ function makeMove(board,move) {
   if (square == -1 || board.currentb[square] != " ") {
     return false;
   } 
-  if (board.currentplayer == 1) {
+  if (board.currentplayer == 1 && board.player1 == player) {
     board.currentb[square] = "X"
     board.currentplayer = 0
-  } else {
-    board.currentb[square] = "0"
+  } else if (board.currentplayer == 0 && board.player0 == player)){
+    board.currentb[square] = "O"
     board.currentplayer = 1
+  } else {
+    return false
   }
   
   return true;

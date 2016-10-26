@@ -16,7 +16,7 @@ let app = express()
 var myboard = {}
 myboard.currentb = [" "," "," "," "," "," "," "," "," "]
 myboard.player1 = ""
-myboard.player2 = ""
+myboard.player0 = ""
 myboard.currentplayer = 0
 
 
