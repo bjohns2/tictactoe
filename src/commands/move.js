@@ -19,7 +19,7 @@ let attachments = [
   {
     title: 'Starbot will help you find the hippest repos on GitHub!',
     color: '#2FA44F',
-    text: board + ' ' + count,
+    text: count,
     mrkdwn_in: ['text']
   },
   {
@@ -31,8 +31,8 @@ let attachments = [
 ]
 
 
-const handler = (payload, res) => {
-  count = 1
+const handler = (myboard, payload, res) => {
+  // count = 1
 
   let msg = _.defaults({
     channel: payload.channel_name,
