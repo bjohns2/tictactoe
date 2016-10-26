@@ -21,12 +21,14 @@ const msgDefaults = {
 
 
 const handler = (myboard, payload, res) => {
-  if (myboard.currentb[0] == "X") {
-    myboard.currentb[0] = "O"
-  } else {
-    myboard.currentb[0] = "X"
-  }
+  // if (myboard.currentb[0] == "X") {
+  //   myboard.currentb[0] = "O"
+  // } else {
+  //   myboard.currentb[0] = "X"
+  // }
   // myboard.currentb = myboard.currentb + "o"
+ 
+  valid_move = make_move(myboard, payload.text.split(" ")[1])
 
   let msg = _.defaults({
     channel: payload.channel_name,
@@ -36,6 +38,45 @@ const handler = (myboard, payload, res) => {
   res.set('content-type', 'application/json')
   res.status(200).json(msg)
   return
+}
+
+function makeMove(board, move) {
+  var square = -1
+  switch (move) {
+      case "UL":
+          square = 0;
+          break;
+      case "UM":
+          square = 1;
+          break;
+      case "UR":
+          square = 2;
+          break;
+      case "ML":
+          square = 3;
+          break;
+      case "MM":
+          square = 4;
+          break;
+      case "MR":
+          square = 5;
+          break;
+      case "LL":
+          square = 6;
+          break;
+      case "LM":
+          square = 7;
+          break;
+      case "LR":
+          square = 8;
+          break;
+  }
+  if (square == -1 || board.currentb[square] != " ") {
+    return False
+  } 
+  board.currentb[square] = "X"
+  return True
+
 }
 
 function attachments(board,payload) {
