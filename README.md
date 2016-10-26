@@ -1,71 +1,26 @@
-# 🌟 Starbot
+# 🗿 Tic Tac Toe
 
-![Starbot](https://heroku-www-files.s3.amazonaws.com/starbot/starbot-banner.png)
-
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
-
-Starbot is [GitHub's trending open-source](https://github.com/trending/) page, reincarnated as a Slack bot. It is also the sample referenced in the ["How to Deploy Your Slack Bots to Heroku"](https://blog.heroku.com/archives/2016/3/9/how-to-deploy-your-slack-bots-to-heroku) blog post.
-
+This is Brittney Johnson's Slack Application Engineering: Technical Exercise. Although there are many possible improvements, it meets all the requirements given (including the time constraints of a busy student). 
 
 ### Supported `/slash` commands
 
-Create a `/starbot` [custom slash command](https://api.slack.com/slash-commands), using the URL: `{app-name}.herokuapp.com/commands/starbot`. *Take note of the provided `token`, this is used to verify requests come from Slack.*
+- `/ttt` or `/ttt help` - List available commands
+- `/ttt challenge` - Start a new tic tac toe game in the channel (overriding the last game played in the channel)
+- `/ttt move` - Make a move! Options are UL,UM,UR,ML,MM,MR,LL,LM,LR, which stand for upper left, upper middle, upper right, middle left, middle middle, middle right, lower left, lower middle, lower right
+- `/ttt show` - Display the current board and see whose turn it is
 
-- `/starbot` or `/starbot help` - List available commands
-- `/starbot repos` - Display trending GitHub projects
+### Requirements:
+- Users can create a new game in any Slack channel by challenging another user (using their @username).
+- A channel can have at most one game being played at a time.
+- Anyone in the channel can run a command to display the current board and list whose turn it is.
+- Users can specify their next move, which also publicly displays the board in the channel after the move with a reminder of whose turn it is.
+- Only the user whose turn it is can make the next move.
+- When a turn is taken that ends the game, the response indicates this along with who won.
 
-### Install
 
-```shell
-$ npm install
-```
+### Thanks and Credit To:
 
-### Copy `.env-example` to `.env`
-
-```shell
-$ cp .env-example .env
-```
-
-### Configure
-
-```shell
-SLACK_TEAM_TOKEN=xoxb...8WRqKWx
-NODE_ENV=development
-PORT=3000
-```
-### Run
-
-```shell
-$ npm start
-
-🚀 Starbot LIVES on PORT 3000 🚀
-```
-
-Visit [localhost:3000](http://localhost:3000).
-
-### Deploy
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
-_Or with the [Heroku Toolbelt](https://toolbelt.heroku.com)_
-
-```shell
-$ heroku create {optional-app-name}
-
-Creating app... done, stack is cedar-14
-https://blooming-scrubland-64464.herokuapp.com/
-
-$ git push heroku master
-...
-remote: -----> Node.js app detected
-...
-remote:        https://blooming-scrubland-64464.herokuapp.com/ deployed to Heroku
-...
-To https://git.heroku.com/blooming-scrubland-64464.git
- * [new branch]      master -> master
-
-$ heroku open
-```
+https://github.com/mattcreager/starbot
 
 ### License
 
