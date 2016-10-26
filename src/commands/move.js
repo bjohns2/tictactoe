@@ -13,7 +13,7 @@ const msgDefaults = {
   icon_emoji: config('ICON_EMOJI')
 }
 
-var myboard2 = "wow"
+// var myboard2 = "wow"
 
 
 
@@ -21,11 +21,11 @@ var myboard2 = "wow"
 
 
 const handler = (myboard, payload, res) => {
-  myboard = myboard + "x"
+  myboard.currentb = myboard.currentb + "o"
 
   let msg = _.defaults({
     channel: payload.channel_name,
-    attachments: attachments(myboard)
+    attachments: attachments(myboard.currentb)
   }, msgDefaults)
 
   res.set('content-type', 'application/json')

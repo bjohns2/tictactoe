@@ -13,7 +13,8 @@ let bot = require('./bot')
 
 let app = express()
 
-var myboard = "xxxx"
+var myboard = {}
+myboard.currentb = "xxxxx"
 
 if (config('PROXY_URI')) {
   app.use(proxy(config('PROXY_URI'), {
