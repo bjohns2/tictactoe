@@ -40,41 +40,41 @@ const handler = (myboard, payload, res) => {
   return
 }
 
-function makeMove(board,move_string) {
-  // var square = -1;
-  // switch (move) {
-  //     case "UL":
-  //         square = 0;
-  //         break;
-  //     case "UM":
-  //         square = 1;
-  //         break;
-  //     case "UR":
-  //         square = 2;
-  //         break;
-  //     case "ML":
-  //         square = 3;
-  //         break;
-  //     case "MM":
-  //         square = 4;
-  //         break;
-  //     case "MR":
-  //         square = 5;
-  //         break;
-  //     case "LL":
-  //         square = 6;
-  //         break;
-  //     case "LM":
-  //         square = 7;
-  //         break;
-  //     case "LR":
-  //         square = 8;
-  //         break;
-  // }
-  // if (square == -1 || board.currentb[square] != " ") {
-  //   return false;
-  // } 
-  // board.currentb[square] = "X"
+function makeMove(board,move) {
+  var square = -1;
+  switch (move) {
+      case "UL":
+          square = 0;
+          break;
+      case "UM":
+          square = 1;
+          break;
+      case "UR":
+          square = 2;
+          break;
+      case "ML":
+          square = 3;
+          break;
+      case "MM":
+          square = 4;
+          break;
+      case "MR":
+          square = 5;
+          break;
+      case "LL":
+          square = 6;
+          break;
+      case "LM":
+          square = 7;
+          break;
+      case "LR":
+          square = 8;
+          break;
+  }
+  if (square == -1 || board.currentb[square] != " ") {
+    return false;
+  } 
+  board.currentb[square] = "X"
   return true;
 }
 
