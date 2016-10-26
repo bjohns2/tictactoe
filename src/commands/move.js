@@ -47,9 +47,9 @@ function attachments(board) {
     mrkdwn_in: ['text']
   },
   {
-    title: 'Configuring Starbot',
+    title: 'Next',
     color: '#E3E4E6',
-    text: '`/starbot help` ... you\'re lookin at it! \n',
+    text: 'I will make a move',
     mrkdwn_in: ['text']
   }
 ]
