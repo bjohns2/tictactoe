@@ -17,7 +17,24 @@ var myboard2 = "wow"
 
 
 
-let attachments = [
+
+
+
+const handler = (myboard, payload, res) => {
+  myboard2 = myboard
+
+  let msg = _.defaults({
+    channel: payload.channel_name,
+    attachments: attachments(myboard)
+  }, msgDefaults)
+
+  res.set('content-type', 'application/json')
+  res.status(200).json(msg)
+  return
+}
+
+function attachments(board) {
+  var attachments = [
   {
     title: 'Starbot will help you find the hippest repos on GitHub!',
     color: '#2FA44F',
@@ -31,22 +48,7 @@ let attachments = [
     mrkdwn_in: ['text']
   }
 ]
-
-
-const handler = (myboard, payload, res) => {
-  myboard2 = myboard
-
-  let msg = _.defaults({
-    channel: payload.channel_name,
-    attachments: attachments
-  }, msgDefaults)
-
-  res.set('content-type', 'application/json')
-  res.status(200).json(msg)
-  return
 }
-
-
 
 
 module.exports = { pattern: /move/ig, handler: handler }
