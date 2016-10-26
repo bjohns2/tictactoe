@@ -42,6 +42,7 @@ const handler = (ticTacToe, payload, res) => {
 }
 
 function makeMove(board,move,player) {
+  console.log(board)
   var square = -1;
   switch (move) {
       case "UL":
@@ -84,7 +85,7 @@ function makeMove(board,move,player) {
   } else {
     return false
   }
-  
+  console.log(board)
   return true;
 }
 
