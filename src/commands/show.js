@@ -42,7 +42,7 @@ const handler = (ticTacToe, payload, res) => {
 
 function attachments(board,payload) {
   var player = "someone's"
-  if (board.currentplayer) == 1 {
+  if (board.currentplayer == 1) {
     player = board.player1
   } else {
     player = board.player0
