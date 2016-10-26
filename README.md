@@ -17,10 +17,14 @@ This is Brittney Johnson's Slack Application Engineering: Technical Exercise. Al
 - Only the user whose turn it is can make the next move.
 - When a turn is taken that ends the game, the response indicates this along with who won.
 
+### Possible improvements:
+- More modular design: the tic tac toe boards should really be their own objects, with functions abstracted away rather than rewritten with slight changes across the commands. 
+- Bot to play against: it would be nice to have someone to play against, and implementing minimax on this would be quick. 
+- More games, more fun: tic tac toe can be extended to games like connect four without too much change
 
-### Thanks and Credit To:
+### Thanks To:
 
-https://github.com/mattcreager/starbot
+https://github.com/mattcreager/starbot, for providing a structure I used to bootstrap handling slash commands. 
 
 ### License
 
