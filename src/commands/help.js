@@ -14,7 +14,7 @@ let attachments = [
   {
     title: 'Play Tic Tac Toe!',
     color: '#2FA44F',
-    text: '`/ttt challenge @user` lets you challenge someone named user. If a game is already being played, this will end it and start a new one. \n /ttt move UL|UM|UR|ML|MM|MR|LL|LM|LR lets you move.',
+    text: '`/ttt challenge [username]` lets you challenge someone named user. If a game is already being played, this will end it and start a new one. \n `/ttt move [UL|UM|UR|ML|MM|MR|LL|LM|LR]` lets you move. It stands for upper left, upper middle, upper right, etc.',
     mrkdwn_in: ['text']
   },
   {
