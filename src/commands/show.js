@@ -40,7 +40,7 @@ const handler = (ticTacToe, payload, res) => {
 
 
 
-function attachments(board,payload,) {
+function attachments(board,payload) {
   var messages = ["Sorry, you can't make that move.","Good move!","X won!","O won!","Tie :|","Here you go!"]
   var attachments = [
   {
