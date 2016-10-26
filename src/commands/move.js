@@ -41,7 +41,7 @@ const handler = (myboard, payload, res) => {
 }
 
 function makeMove(board, move) {
-  var square = -1
+  var square = -1;
   switch (move) {
       case "UL":
           square = 0;
@@ -72,10 +72,10 @@ function makeMove(board, move) {
           break;
   }
   if (square == -1 || board.currentb[square] != " ") {
-    return False
+    return false;
   } 
   board.currentb[square] = "X"
-  return True
+  return true;
 
 }
 
