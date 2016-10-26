@@ -28,7 +28,7 @@ const handler = (myboard, payload, res) => {
   // }
   // myboard.currentb = myboard.currentb + "o"
  
-  valid_move = make_move(myboard, payload.text.split(" ")[1])
+  // valid_move = make_move(myboard, payload.text.split(" ")[1])
 
   let msg = _.defaults({
     channel: payload.channel_name,
@@ -76,7 +76,6 @@ function makeMove(board, move) {
   // } 
   // board.currentb[square] = "X"
   return true;
-
 }
 
 function attachments(board,payload) {
