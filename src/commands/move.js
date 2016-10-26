@@ -48,6 +48,7 @@ function attachments(board) {
     mrkdwn_in: ['text']
   }
 ]
+return attachments
 }
 
 
