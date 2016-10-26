@@ -3,7 +3,7 @@
 
 const _ = require('lodash')
 const config = require('../config')
-const bot = require('../bot')
+// const bot = require('../bot')
 const index = require('../index')
 const trending = require('github-trending')
 
