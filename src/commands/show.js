@@ -65,4 +65,4 @@ function boardify(board) {
 }
 
 
-module.exports = { pattern: /move/ig, handler: handler }
+module.exports = { pattern: /show/ig, handler: handler }
